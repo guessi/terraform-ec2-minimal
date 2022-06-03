@@ -6,7 +6,7 @@ Minimal setup for creating EC2 instance with customized boot up script
 
 - AWS IAM User/Role with EC2 Full Access Permission
 - Proper configured AWS profile (profile name: default)
-- Terraform > 0.12
+- Terraform >= 1.0
 
 ### Setup Guide
 

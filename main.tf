@@ -1,4 +1,4 @@
-// get the latest ubuntu server 20.04 cloud image
+// get the latest ubuntu server 22.04 cloud image
 // - ref: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ami
 
 data "aws_ami" "default" {
@@ -6,7 +6,7 @@ data "aws_ami" "default" {
 
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
+    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
   }
 
   filter {

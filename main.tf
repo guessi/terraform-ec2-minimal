@@ -1,5 +1,5 @@
 // get the latest ubuntu server 22.04 cloud image
-// - ref: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ami
+// - ref: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ami
 
 data "aws_ami" "default" {
   most_recent = true

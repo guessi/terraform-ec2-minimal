@@ -44,4 +44,19 @@ resource "aws_instance" "default" {
   key_name         = var.key_name
   ami              = data.aws_ami.default.id
   user_data_base64 = data.cloudinit_config.default.rendered
+
+  root_block_device {
+    volume_size = var.volume_size
+    volume_type = var.volume_type
+  }
+
+  # follow security best practices to enfore IMDSv2
+  # - ref: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html
+  metadata_options {
+    http_endpoint               = "enabled"
+    http_protocol_ipv6          = "disabled"
+    http_put_response_hop_limit = "1"
+    http_tokens                 = "required"
+    instance_metadata_tags      = "disabled"
+  }
 }

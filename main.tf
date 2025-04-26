@@ -1,4 +1,4 @@
-// get the latest ubuntu server 22.04 cloud image
+// get the latest ubuntu server 24.04 cloud image
 // - ref: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ami
 
 data "aws_ami" "default" {

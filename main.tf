@@ -81,12 +81,20 @@ data "cloudinit_config" "default" {
 // an ec2 instance with boot up script defined
 // - ref: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance
 
+resource "random_id" "instance_suffix" {
+  byte_length = 4
+}
+
 resource "aws_instance" "default" {
   instance_type               = var.instance_type
   key_name                    = var.key_name
   ami                         = data.aws_ami.default.id
   associate_public_ip_address = true
   user_data_base64            = data.cloudinit_config.default.rendered
+
+  tags = {
+    Name = "${var.instance_name_prefix}-${random_id.instance_suffix.hex}"
+  }
 
   root_block_device {
     volume_size = var.volume_size

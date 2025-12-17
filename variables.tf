@@ -19,3 +19,8 @@ variable "volume_type" {
   type    = string
   default = "gp3"
 }
+
+variable "instance_name_prefix" {
+  type    = string
+  default = "demo-instance"
+}
